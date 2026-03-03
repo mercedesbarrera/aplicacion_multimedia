@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">AplicacionMultimedia</string>
-    <string name="title_activity_player1">activity_player1</string>
-    <string name="title_activity_player">ActivityPlayer</string>
+
+    <!-- Strings para activity_main -->
+    <string name="rec">REC</string>
+    <string name="stop">Stop</string>
+    <string name="reproducir">Reproducir</string>
 </resources>
