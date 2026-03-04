@@ -2,8 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="purple_500">#6200EE</color>
-    <color name="purple_700">#3700B3</color>
-    <color name="teal_200">#03DAC5</color>
+    <color name="rojo">#D32F2F</color>
+    <color name="negro_apagado">#121212</color>
+    <color name="negro_panel">#66000000</color>
+    <color name="rojo_rec">#E53935</color>
+    <color name="gris_claro">#424242</color>
+    <color name="celeste">#1E88E5</color>
+
 
 </resources>

@@ -21,15 +21,15 @@
         android:background="#66000000">
 
         <!-- BOTÓN REC GRANDE -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <Button
             android:id="@+id/btnRecord"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/outline_emergency_recording_24"
-            android:contentDescription="@string/rec"
-            app:backgroundTint="#E53935"
-            app:tint="@android:color/white"/>
+            android:text="REC"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:backgroundTint="#E53935" />
 
         <!-- BOTONES SECUNDARIOS -->
         <LinearLayout

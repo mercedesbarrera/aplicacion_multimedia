@@ -10,17 +10,23 @@ import android.media.MediaRecorder
 import android.os.Bundle
 import android.view.SurfaceView
 import android.widget.Button
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import java.io.File
 import android.Manifest
 import android.widget.TextView
+import androidx.annotation.RequiresPermission
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var surfaceView: SurfaceView
     private lateinit var btnRecord: Button
     private lateinit var btnStop: Button
     private lateinit var btnPlay: Button
+    private lateinit var txtRecording: TextView
 
     private lateinit var cameraDevice: CameraDevice
     private lateinit var cameraCaptureSession: CameraCaptureSession
@@ -33,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val REQUES_CODE_PERMISSIONS = 100
+    @RequiresPermission(Manifest.permission.CAMERA)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -74,6 +81,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    @RequiresPermission(Manifest.permission.CAMERA)
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permission: Array<out String>,
@@ -89,11 +97,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresPermission(Manifest.permission.CAMERA)
     private fun openCamera() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-            != PackageManager.PERMISSION_GRANTED) {
-            return
-        }
         val cameraId = cameraManager.cameraIdList[0]
 
         if (!checkPermissions()) return
@@ -103,12 +108,8 @@ class MainActivity : AppCompatActivity() {
                 cameraDevice = camera
             }
 
-            override fun onDisconnected(camera: CameraDevice) {
-                camera.close()
-            }
-            override fun onError(camera: CameraDevice, error: Int) {
-                camera.close()
-            }
+            override fun onDisconnected(camera: CameraDevice) {}
+            override fun onError(camera: CameraDevice, error: Int) {}
         }, null)
     }
 
